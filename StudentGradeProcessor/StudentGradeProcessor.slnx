@@ -1,0 +1,9 @@
+<Solution>
+  <Folder Name="/Solution Items/">
+    <File Path=".gitignore" />
+    <File Path="ReadMe.md" />
+    <Project Path="StudentGradeCalculator.Console/StudentGradeProcessor.Console.csproj" />
+  </Folder>
+  <Project Path="StudentGradeCalculator.Tests/StudentGradeProcessor.Tests.csproj" Id="136b45a1-5f0b-4015-b839-28284bc2d995" />
+  <Project Path="StudentGradeProcessor.Core/StudentGradeProcessor.Core.csproj" />
+</Solution>
