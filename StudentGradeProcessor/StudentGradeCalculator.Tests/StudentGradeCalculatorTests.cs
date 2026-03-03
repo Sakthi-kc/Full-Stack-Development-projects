@@ -13,7 +13,14 @@ namespace StudentGradeProcessor.Tests
         [TestInitialize]
         public void StartUp()
         {
-            _calc = new StudentGradeCalculator();
+            var config = new AppConfig
+            {
+                minMark = 0,
+                maxMark = 100,
+                numberOfSubjects = 5
+            };
+
+            _calc = new StudentGradeCalculator(config);
         }
 
         [TestMethod]
@@ -30,5 +37,34 @@ namespace StudentGradeProcessor.Tests
             Assert.AreEqual('A', grade);
 
         }
+
+        [TestMethod]
+        [DataRow(70)]
+        public void CalculateGrade_BoundaryCase70(double average)
+        {
+            decimal avg = Convert.ToDecimal(average);
+
+            var grade = _calc.CalculateGrade(avg);
+
+            Assert.AreEqual('C', grade);
+        }
+
+
+        [TestMethod]
+        public void CalculateAverage_ExceptionTesting()
+        {
+            //Arrange
+            List<decimal> testList = new List<decimal>();
+
+
+            //Act+Assert
+            Assert.Throws<ArgumentException>(() =>
+            {
+                _calc.CalculateAverage(testList);
+            });
+
+
+        }
+
     }
 }
