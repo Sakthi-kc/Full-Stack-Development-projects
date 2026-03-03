@@ -6,7 +6,7 @@ namespace StudentGradeProcessor.Core
 {
     public interface IStudentGradeCalculator
     {
-        decimal CalculateAverage(IEnumerable<decimal> marks);
+        decimal CalculateAverage(IEnumerable<decimal> marks, int minMark, int maxMark);
 
         char CalculateGrade(decimal average);
 

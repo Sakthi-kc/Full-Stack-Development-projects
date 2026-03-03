@@ -1,7 +1,4 @@
-name: Build and Test Workflow
-
-env:
-  SOLUTION_PATH: StudentGradeProcessor/StudentGradeProcessor.slnx
+name: List Folders Workflow
 
 env:
   SOLUTION_PATH: StudentGradeProcessor/StudentGradeProcessor.slnx
@@ -19,7 +16,7 @@ on:
 # Actions:
 jobs:
   # Job id to identify must be unique
-  build-test-console-app:
+  list-folder:
     runs-on: ubuntu-latest
 
     steps:
