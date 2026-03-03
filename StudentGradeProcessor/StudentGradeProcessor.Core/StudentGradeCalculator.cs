@@ -6,8 +6,15 @@ namespace StudentGradeProcessor.Core
 {
     public class StudentGradeCalculator : IStudentGradeCalculator
     {
+        private readonly AppConfig _config;
 
-        public decimal CalculateAverage(IEnumerable<decimal> marks, int minMark, int maxMark)
+        public StudentGradeCalculator(AppConfig config)
+        {
+            _config = config;
+        }
+
+
+        public decimal CalculateAverage(IEnumerable<decimal> marks)
         {
             if (marks == null)
                 throw new ArgumentNullException(nameof(marks));
@@ -17,7 +24,7 @@ namespace StudentGradeProcessor.Core
             if (markList.Count == 0)
                 throw new ArgumentException("Marks collection cannot be empty.", nameof(marks));
 
-            if (marks.Any(mark => mark < minMark || mark > maxMark))
+            if (marks.Any(mark => mark < _config.minMark || mark > _config.maxMark))
                 throw new ArgumentOutOfRangeException(nameof(marks),
                     "Each mark must be between 0 and 100.");
 
@@ -26,7 +33,7 @@ namespace StudentGradeProcessor.Core
 
         public char CalculateGrade(decimal average)
         {
-            if (average < 0 || average > 100)
+            if (average < _config.minMark || average > _config.maxMark)
                 throw new ArgumentOutOfRangeException(nameof(average),
                     "Average must be between 0 and 100.");
 
