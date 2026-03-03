@@ -40,7 +40,7 @@ jobs:
       # Configuration can be Debug for development but Release for production and CI
       # Fail here means compile time error
       - name: Build project
-        run: dotnet build $SOLUTION_PATH --no-restore --configuration Release
+        run: dotnet build $SOLUTION_PATH --no-restore
 
       # Runs unit test documents
       # Fail here means logic error
