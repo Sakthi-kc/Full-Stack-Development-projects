@@ -1,5 +1,11 @@
 name: List Folders Workflow
 
+# Pull request trigger
+on:
+  pull_request:
+    branches:
+      - main
+
 # Manual Trigger
 # No branch defined hence can run from any branch
 on: 
