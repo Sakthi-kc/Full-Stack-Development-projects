@@ -45,4 +45,4 @@ jobs:
       # Runs unit test documents
       # Fail here means logic error
       - name: Test project
-        run: dotnet test $SOLUTION_PATH --no-build --verbose minimal
+        run: dotnet test $SOLUTION_PATH --no-build --verbosity minimal
