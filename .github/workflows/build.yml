@@ -1,5 +1,8 @@
 name: List Folders Workflow
 
+env:
+  SOLUTION_PATH: StudentGradeProcessor/StudentGradeProcessor.slnx
+
 # Pull request trigger
 on:
   pull_request:
@@ -31,15 +34,15 @@ jobs:
       # Downloads all the NuGet packages and dependencies like MSUnit, EFCore
       # Fail here means missing packages
       - name: Restore dependencies
-        run: dotnet restore StudentGradeProcessor/StudentGradeProcessor.slnx
+        run: dotnet restore $SOLUTION_PATH
 
       # Compiles the C# code into EXE or DLL files, no restore as we already did that
       # Configuration can be Debug for development but Release for production and CI
       # Fail here means compile time error
       - name: Build project
-        run: dotnet build --no-restore --configuration Release
+        run: dotnet build $SOLUTION_PATH --no-restore --configuration Release
 
       # Runs unit test documents
       # Fail here means logic error
       - name: Test project
-        run: dotnet test --no-build --verbose minimal
+        run: dotnet test $SOLUTION_PATH --no-build --verbose minimal
