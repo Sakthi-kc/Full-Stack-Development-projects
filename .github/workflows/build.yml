@@ -31,13 +31,13 @@ jobs:
       # Downloads all the NuGet packages and dependencies like MSUnit, EFCore
       # Fail here means missing packages
       - name: Restore dependencies
-        run: dotnet restore StudentGradeProcessor.slnx
+        run: dotnet restore StudentGradeProcessor/StudentGradeProcessor.slnx
 
       # Compiles the C# code into EXE or DLL files, no restore as we already did that
       # Configuration can be Debug for development but Release for production and CI
       # Fail here means compile time error
       - name: Build project
-        run: dotnet build --no-restore --confirguration Release
+        run: dotnet build --no-restore --configuration Release
 
       # Runs unit test documents
       # Fail here means logic error
