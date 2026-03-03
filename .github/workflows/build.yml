@@ -6,9 +6,8 @@ on:
     branches:
       - main
 
-# Manual Trigger
-# No branch defined hence can run from any branch
-on: 
+  # Manual Trigger
+  # No branch defined hence can run from any branch
   workflow_dispatch:
   
 # Actions:
@@ -22,4 +21,7 @@ jobs:
         uses: actions/checkout@v3
 
       - name: List folders
-        run: ls -d */
+        run: ls -d *
+
+      - name: Print statement
+        run: echo "Hello, workflow is running!"
