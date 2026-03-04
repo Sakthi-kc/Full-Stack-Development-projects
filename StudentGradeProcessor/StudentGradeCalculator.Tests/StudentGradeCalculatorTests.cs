@@ -13,7 +13,7 @@ namespace StudentGradeProcessor.Tests
         [TestInitialize]
         public void StartUp()
         {
-            var config = new AppConfig
+            var mockConfig = new AppConfig
             {
                 minMark = 0,
                 maxMark = 100,
