@@ -20,7 +20,7 @@ namespace StudentGradeProcessor.Tests
                 numberOfSubjects = 5
             };
 
-            _calc = new StudentGradeCalculator(config);
+            _calc = new StudentGradeCalculator(mockConfig);
         }
 
         [TestMethod]
