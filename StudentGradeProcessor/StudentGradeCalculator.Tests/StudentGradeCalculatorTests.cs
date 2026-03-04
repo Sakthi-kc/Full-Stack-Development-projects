@@ -13,14 +13,14 @@ namespace StudentGradeProcessor.Tests
         [TestInitialize]
         public void StartUp()
         {
-            var config = new AppConfig
+            var mockConfig = new AppConfig
             {
                 minMark = 0,
                 maxMark = 100,
                 numberOfSubjects = 5
             };
 
-            _calc = new StudentGradeCalculator(config);
+            _calc = new StudentGradeCalculator(mockConfig);
         }
 
         [TestMethod]

@@ -38,9 +38,9 @@ Console.WriteLine($"Please enter your marks for {numberOfSubjects} subjects");
 try
 {
     //ReadMarks
-    for (int i = 1; i <= numberOfSubjects; i++)
+    for (int subject = 1; subject <= numberOfSubjects; subject++)
     {
-        Console.Write($"Mark {i}: ");
+        Console.Write($"Mark {subject}: ");
         decimal mark;
         while (!decimal.TryParse(Console.ReadLine(), out mark) || mark < marksConfig.minMark || mark > marksConfig.maxMark)
         {
