@@ -9,7 +9,7 @@ namespace Payment
 {
     internal class Processor
     {
-        //delegate function which means function that takes int and return IPaymentService
+        //delegate function which means function that takes paymentType and returns IPaymentService
         private readonly Func<paymentType, IPaymentService> _paymentFactory;
 
         public Processor(Func<paymentType, IPaymentService> paymentFactory)
