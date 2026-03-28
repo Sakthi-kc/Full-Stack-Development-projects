@@ -10,7 +10,7 @@ on:
     paths: ['OrderManagement/**']
     
   push:
-    branches: [feature/*]
+    branches-ignore: [main]
     paths:
       - 'OrderManagement/**'
 
