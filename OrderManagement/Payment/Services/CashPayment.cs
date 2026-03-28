@@ -7,7 +7,7 @@ namespace Payment.Services
 {
     internal class CashPayment : PaymentService
     {
-        protected override void Pay(double amount)
+        protected override void PayByService(double amount)
         {
             Console.WriteLine($"Received {amount} via Cash");
         }

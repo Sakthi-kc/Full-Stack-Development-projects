@@ -7,7 +7,7 @@ namespace Payment.Services
 {
     internal class UPIPayment : PaymentService
     {
-        protected override void Pay(double amount)
+        protected override void PayByService(double amount)
         {
             Console.WriteLine($"Received {amount} via UPI");
         }
