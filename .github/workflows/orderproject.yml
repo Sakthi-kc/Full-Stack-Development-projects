@@ -3,11 +3,13 @@ name: Build Order Management Project
 env:
   SOLUTION_PATH: OrderManagement/OrderManagement.slnx
   
-#Runs when we push changes to main branch
+# Runs when we push changes to remote branch or pull request to main
 on:
+  pull_request:
+    branches: [main]
+    paths: ['OrderManagement/**']
+    
   push:
-    branches:
-      - main
     paths:
       - 'OrderManagement/**'
 

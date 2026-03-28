@@ -32,6 +32,7 @@ namespace Payment
             Console.WriteLine("Enter the amount for payment");
             double amount;
 
+            //user input validation
             while (!double.TryParse(Console.ReadLine(), out amount) || amount <= 0)
             {
                 Console.WriteLine("Please enter a valid amount");
