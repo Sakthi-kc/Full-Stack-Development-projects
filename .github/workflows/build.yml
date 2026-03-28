@@ -33,8 +33,9 @@ jobs:
 
       # Downloads all the NuGet packages and dependencies like MSUnit, EFCore
       # Fail here means missing packages
+      # we have to mention the .slnx path
       - name: Restore dependencies
-        run: dotnet restore
+        run: dotnet restore $SOLUTION_PATH
 
       # Compiles the C# code into EXE or DLL files, no restore as we already did that
       # Configuration can be Debug for development but Release for production and CI
