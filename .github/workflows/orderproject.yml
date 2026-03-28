@@ -10,6 +10,7 @@ on:
     paths: ['OrderManagement/**']
     
   push:
+    branches: ['feature/*']
     paths:
       - 'OrderManagement/**'
 
