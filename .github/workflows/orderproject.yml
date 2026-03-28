@@ -11,8 +11,6 @@ on:
     
   push:
     branches: ['feature/**']
-    paths:
-      - 'OrderManagement/**'
 
 jobs:
   # Job id to identify must be unique within the yml file
