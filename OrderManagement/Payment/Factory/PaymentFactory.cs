@@ -1,4 +1,5 @@
 ﻿using Payment.Base;
+using Payment.Configuration;
 using Payment.Services;
 using System;
 using System.Collections.Generic;
@@ -9,13 +10,13 @@ namespace Payment.Factory
     internal class PaymentFactory
     {
         //declared as static because we don't want to create an object for this
-        public static PaymentService GetPayment(int option)
+        public static PaymentService GetPayment(paymentType type)
         {
-            return option switch
+            return type switch
             {
-                1 => new CashPayment(),
-                2 => new UPIPayment(),
-                3 => new CardPayment(),
+                paymentType.Cash => new CashPayment(),
+                paymentType.UPI => new UPIPayment(),
+                paymentType.Card => new CardPayment(),
                 _ => throw new Exception("Invalid option")
             };
         }

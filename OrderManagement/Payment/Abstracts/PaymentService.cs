@@ -14,13 +14,13 @@ namespace Payment.Base
 
         public void PlaceOrder(double amount)
         {
+            PrintReceipt();
+
             Console.ForegroundColor = ConsoleColor.Green;
-
-            Pay(amount);
-
+            PayByService(amount);
             Console.ResetColor();
         }
 
-        protected abstract void Pay(double amount);
+        protected abstract void PayByService(double amount);
     }
 }
