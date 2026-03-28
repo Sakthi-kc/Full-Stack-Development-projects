@@ -8,7 +8,7 @@ namespace Payment
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Payment Service Loading...\nChoose payment type:\n");
+            Console.WriteLine("Payment Service Loading...\nChoose payment type:");
 
             foreach (var type in Enum.GetValues(typeof(paymentType)))
             {
@@ -36,6 +36,8 @@ namespace Payment
             {
                 Console.WriteLine("Please enter a valid amount");
             }
+
+            amount = Math.Round(amount, 2);
 
             Console.WriteLine();
 

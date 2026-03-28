@@ -15,7 +15,7 @@ on:
   
 # Actions:
 jobs:
-  # Job id to identify must be unique
+  # Job id to identify must be unique within the file
   build-test-console-app:
     runs-on: ubuntu-latest
 

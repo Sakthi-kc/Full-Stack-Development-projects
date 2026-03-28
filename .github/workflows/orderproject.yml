@@ -1,0 +1,37 @@
+name: Build Order Management Project
+
+env:
+  SOLUTION_PATH: OrderManagement/OrderManagement.slnx
+  
+#Runs when we push changes to main branch
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - 'OrderManagement/**'
+
+jobs:
+  # Job id to identify must be unique within the yml file
+  build-test-console-app:
+    runs-on: ubuntu-latest
+
+    steps:
+      # Important actions - fetches the repo and puts on the working directory of new ubuntu server
+      - name: Checkout Repo
+        uses: actions/checkout@v3
+
+      # Downloads the .NET SDK mentioned in csproj to ubuntu server
+      - name: Install dotnet sdk
+        uses: actions/setup-dotnet@v3
+        with:
+          dotnet-version: '10.0.x'
+
+      # Install NuGet packages
+      - name: Restore dependencies
+        run: dotnet restore $SOLUTION_PATH
+
+      # Build the project without restoring the packages again in build
+      - name: Build the app
+        run: dotnet build $SOLUTION_PATH --no-restore
+
